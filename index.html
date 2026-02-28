@@ -1,315 +1,312 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ariake Sea Nori</title>
+
+<meta name="description" content="有明海で三世代続く海苔づくり。肥沃な大地と多くの河川が運ぶ豊富な栄養、最大約6メートルの干満差、自然の干出が生む口溶けの良さ。" />
 
 <style>
 
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN",sans-serif;
-background:#0b0f14;
-color:#eef3fa;
-line-height:1.8;
+:root{
+--bg:#0b0f14;
+--card:rgba(255,255,255,.06);
+--line:rgba(255,255,255,.14);
+--fg:#eef3fa;
+--muted:rgba(238,243,250,.75);
+--accent:rgba(255,255,255,.92);
+--shadow:0 20px 60px rgba(0,0,0,.35);
+--radius:18px;
 }
 
-/* language switch */
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
 
-.lang{
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+background:var(--bg);
+color:var(--fg);
+line-height:1.85;
+}
+
+a{color:var(--fg);text-decoration:none;}
+
+.container{
+width:min(1060px,100%);
+margin:0 auto;
+padding:0 20px;
+}
+
+/* topbar */
+
+.topbar{
 position:fixed;
-top:20px;
-right:20px;
-z-index:100;
+top:16px;
+left:0;
+right:0;
+z-index:50;
+pointer-events:none;
+}
+
+.topbar-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(11,15,20,.55);
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+border-radius:999px;
+padding:10px 12px;
+box-shadow:var(--shadow);
+pointer-events:auto;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:999px;
+background:white;
+}
+
+.brand-title{
+font-size:13px;
+letter-spacing:.08em;
+color:var(--muted);
+}
+
+.controls{
+display:flex;
+gap:10px;
 }
 
 .lang button{
-margin-left:10px;
+border:1px solid rgba(255,255,255,.18);
+background:rgba(255,255,255,.06);
+color:var(--fg);
 padding:8px 12px;
-border:1px solid #fff;
-background:transparent;
-color:white;
+border-radius:999px;
+font-size:12px;
 cursor:pointer;
+}
+
+.shop a{
+padding:8px 14px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.22);
+background:rgba(255,255,255,.10);
 }
 
 /* hero */
 
 .hero{
 min-height:100vh;
-display:flex;
+display:grid;
 align-items:center;
-justify-content:center;
-text-align:center;
-
 background:
-linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.85)),
+linear-gradient(180deg,rgba(11,15,20,.25),rgba(11,15,20,.92)),
 url("IMG_7663.jpeg") center/cover no-repeat;
 }
 
 .hero-inner{
-max-width:720px;
-padding:20px;
+padding:130px 0 90px;
 }
 
-.hero h1{
-font-size:48px;
-letter-spacing:0.05em;
+.h1{
+font-size:clamp(34px,5vw,58px);
+line-height:1.08;
 }
 
-.hero p{
-opacity:0.9;
+.lead{
+max-width:62ch;
 font-size:18px;
+color:rgba(238,243,250,.86);
 }
 
-.button{
-display:inline-block;
-margin-top:30px;
-padding:14px 32px;
-border:1px solid white;
-color:white;
-text-decoration:none;
+.cta{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:26px;
+}
+
+.btn{
+padding:12px 18px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.22);
+background:rgba(255,255,255,.08);
+cursor:pointer;
+}
+
+.btn.primary{
+background:rgba(255,255,255,.16);
 }
 
 /* sections */
 
 section{
-padding:80px 20px;
-max-width:900px;
-margin:auto;
+padding:80px 0;
 }
 
-h2{
-font-size:30px;
-margin-bottom:20px;
+.section-title{
+font-size:28px;
+margin-bottom:14px;
 }
 
-/* cards */
+.section-sub{
+color:var(--muted);
+max-width:75ch;
+}
 
 .grid{
 display:grid;
-grid-template-columns:1fr 1fr 1fr;
-gap:20px;
+grid-template-columns:repeat(12,1fr);
+gap:18px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:12px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.04);
+border-radius:var(--radius);
+padding:22px;
 }
 
-/* images */
+.span-4{grid-column:span 4;}
+.span-6{grid-column:span 6;}
+.span-12{grid-column:1/-1;}
 
-.image{
-height:300px;
-border-radius:12px;
-background:#1a1a1a;
-display:flex;
-align-items:center;
-justify-content:center;
+.img{
+border-radius:var(--radius);
+border:1px solid rgba(255,255,255,.12);
+background:#111;
+min-height:320px;
+position:relative;
+}
+
+.img.small{min-height:240px;}
+
+.img-label{
+position:absolute;
+left:16px;
+bottom:14px;
+font-size:12px;
+color:#aaa;
+}
+
+footer{
+padding:54px 0 70px;
 color:#888;
+border-top:1px solid rgba(255,255,255,.10);
 }
 
-/* gallery */
-
-.gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.photo{
-height:250px;
-background:#1a1a1a;
-border-radius:10px;
+.footer-row{
 display:flex;
-align-items:center;
-justify-content:center;
-color:#777;
+justify-content:space-between;
 }
 
-/* footer */
+/* reveal */
 
-.footer{
-text-align:center;
-padding:40px;
-color:#777;
+.reveal{
+opacity:0;
+transform:translateY(14px);
+transition:.75s;
+}
+
+.reveal.show{
+opacity:1;
+transform:none;
+}
+
+@media(max-width:920px){
+.span-4,.span-6{grid-column:1/-1;}
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<div class="topbar">
+<div class="container">
+<div class="topbar-inner">
+
+<div class="brand">
+<span class="dot"></span>
+<span class="brand-title">ARI-AKE SEA NORI</span>
+</div>
+
+<div class="controls">
 
 <div class="lang">
-<button onclick="setLang('jp')">JP</button>
-<button onclick="setLang('en')">EN</button>
+<button id="btn-jp" onclick="setLang('jp')">JP</button>
+<button id="btn-en" onclick="setLang('en')">EN</button>
 </div>
 
+<div class="shop">
+<a href="#">
+<span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span>
+</a>
+</div>
 
-<!-- HERO -->
+</div>
+</div>
+</div>
+</div>
 
-<section class="hero">
+<header class="hero">
+<div class="container hero-inner">
 
-<div class="hero-inner">
+<h1 class="h1 reveal"
+data-jp="有明海で三世代続く海苔づくり。"
+data-en="Three Generations of Nori Farming in Ariake Sea."></h1>
 
-<h1 data-jp="有明海で三世代続く海苔づくり"
-data-en="Three Generations of Nori Farming in Ariake Sea"></h1>
-
-<p data-jp="
-肥沃な大地から流れ込む豊かな水。
-多くの河川が運ぶ栄養と、一日最大約6メートルの干満差。
-この特別な環境が、有明海ならではの海苔を育てます。"
-
-data-en="
-Rich waters flowing from fertile land.
-Nutrients carried by many rivers and tidal differences reaching up to six meters each day.
-This unique environment nurtures the distinctive nori of the Ariake Sea.">
-
+<p class="lead reveal"
+data-jp="肥沃な大地から流れ込む豊かな水。多くの河川が運ぶ栄養と、一日最大約6メートルの干満差。この唯一の環境が、有明海ならではの海苔を育てます。"
+data-en="Rich waters flowing from fertile land. Nutrients carried by many rivers and tidal differences reaching up to 6 meters each day. This unique environment nurtures Ariake nori.">
 </p>
 
-<a class="button"
-data-jp="商品は現在準備中"
-data-en="Products coming soon"></a>
-
-</div>
-
-</section>
-
-
-<!-- ENVIRONMENT -->
-
-<section>
-
-<h2 data-jp="有明海という特別な環境"
-data-en="A Unique Marine Environment"></h2>
-
-<div class="grid">
-
-<div class="card">
-<h3 data-jp="肥沃な大地"
-data-en="Fertile Land"></h3>
-
-<p data-jp="周囲の肥沃な大地から多くの河川が流れ込み、海には豊富な栄養が運ばれます。"
-data-en="Water from fertile land and many rivers carries nutrients into the sea."></p>
-</div>
-
-<div class="card">
-<h3 data-jp="干満差 約6メートル"
-data-en="Tidal Range up to 6m"></h3>
-
-<p data-jp="有明海は日本最大級の干満差を持ち、海水を大きく循環させます。"
-data-en="The Ariake Sea has one of the largest tidal ranges in Japan."></p>
-</div>
-
-<div class="card">
-<h3 data-jp="干出が生む口溶け"
-data-en="Natural Air Exposure"></h3>
-
-<p data-jp="潮が引くと海苔網は自然に空気に触れ、繊細な口溶けを育てます。"
-data-en="When the tide recedes, nets are exposed to air creating the soft texture of Ariake nori."></p>
-
+<div class="cta reveal">
+<a class="btn primary" href="#">
+<span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span>
+</a>
 </div>
 
 </div>
+</header>
 
-</section>
-
-
-<!-- FAMILY -->
-
-<section>
-
-<h2 data-jp="三世代の海苔づくり"
-data-en="Three Generations of Craft"></h2>
-
-<p data-jp="
-私たちの海苔づくりは祖父の代から続いています。
-海の状態、潮の流れ、天候を見ながら自然と向き合いながら海苔を育てています。"
-
-data-en="
-Our nori farming began with our grandfather.
-By observing the sea, the tides and the weather,
-we continue to grow nori in harmony with nature.">
-
-</p>
-
-<div class="image">
-family photo
+<footer>
+<div class="container footer-row">
+<div>© Ariake Sea Nori</div>
 </div>
-
-</section>
-
-
-<!-- PRODUCT -->
-
-<section>
-
-<h2 data-jp="有明海の海苔"
-data-en="Ariake Sea Nori"></h2>
-
-<p data-jp="
-潮の満ち引きによる自然の干出が、
-海苔の繊維を繊細に育て、やわらかな口溶けを生み出します。"
-
-data-en="
-The natural drying created by the tides produces a delicate texture and rich umami.">
-
-</p>
-
-<div class="image">
-product photo
-</div>
-
-</section>
-
-
-<!-- GALLERY -->
-
-<section>
-
-<h2 data-jp="有明海の風景"
-data-en="Scenes of Ariake Sea"></h2>
-
-<div class="gallery">
-
-<div class="photo">Photo</div>
-<div class="photo">Photo</div>
-<div class="photo">Photo</div>
-<div class="photo">Photo</div>
-
-</div>
-
-</section>
-
-
-<div class="footer">
-
-© Ariake Sea Nori
-
-</div>
-
+</footer>
 
 <script>
 
 function setLang(lang){
 
 document.querySelectorAll("[data-jp]").forEach(el=>{
-el.innerHTML = el.dataset[lang];
+el.innerHTML=(lang==="jp")?el.dataset.jp:el.dataset.en
 })
 
 }
 
 setLang("jp")
 
+const io=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add("show")
+})
+})
+
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el))
+
 </script>
 
-
 </body>
-
 </html>
