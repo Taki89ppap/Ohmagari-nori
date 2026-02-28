@@ -1,0 +1,62 @@
+<svg viewBox="0 0 900 650" xmlns="http://www.w3.org/2000/svg">
+
+<style>
+.land{fill:#e8e6df}
+.sea{fill:#a9d4ff}
+.river{stroke:#2f6bff;stroke-width:3}
+.coast{stroke:#444;stroke-width:2;fill:none}
+text{font-family:Arial,sans-serif;fill:#222}
+.title{font-size:26px;font-weight:bold}
+.label{font-size:15px}
+</style>
+
+<!-- land -->
+<rect width="900" height="650" class="land"/>
+
+<!-- Ariake sea shape -->
+<path d="
+M250 300
+C260 200 420 170 520 200
+C640 240 690 300 660 380
+C630 450 500 470 420 450
+C320 420 240 380 250 300
+Z" class="sea"/>
+
+<text x="420" y="330" class="title">Ariake Sea</text>
+
+<!-- simplified Kyushu coastline -->
+<path d="
+M200 120
+C350 60 620 100 750 200
+C800 260 800 380 720 480
+C620 580 350 560 240 460
+C180 390 150 240 200 120
+Z" class="coast"/>
+
+<!-- rivers -->
+
+<!-- Chikugo -->
+<path d="M430 70 L440 210" class="river"/>
+<text x="450" y="90" class="label">Chikugo River</text>
+
+<!-- Kase -->
+<path d="M330 160 L390 260" class="river"/>
+<text x="250" y="160" class="label">Kase River</text>
+
+<!-- Rokkaku -->
+<path d="M290 210 L360 300" class="river"/>
+<text x="200" y="210" class="label">Rokkaku River</text>
+
+<!-- Kikuchi -->
+<path d="M520 170 L480 290" class="river"/>
+<text x="530" y="170" class="label">Kikuchi River</text>
+
+<!-- Shirakawa -->
+<path d="M600 220 L520 320" class="river"/>
+<text x="610" y="220" class="label">Shirakawa River</text>
+
+<!-- Midorikawa -->
+<path d="M640 270 L550 350" class="river"/>
+<text x="650" y="270" class="label">Midorikawa River</text>
+
+</svg>
