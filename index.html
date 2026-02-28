@@ -436,4 +436,45 @@
           <p data-jp="産地のストーリーがあるものは、贈り物に強いです。パッケージ写真もあると信頼が一段上がります。"
              data-en="Products with a story make memorable gifts. Packaging photos also boost trust."></p>
 
+  <footer>
+    <div class="container footer-row">
+      <div>© Ariake Sea Nori</div>
+      <div>
+        <a href="#top" data-jp="トップへ" data-en="Back to top"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 1) Language switch
+    function setLang(lang){
+      document.documentElement.lang = (lang === 'jp') ? 'ja' : 'en';
+
+      document.querySelectorAll("[data-jp]").forEach(el=>{
+        el.innerHTML = (lang === 'jp') ? el.dataset.jp : el.dataset.en;
+      });
+
+      document.getElementById('btn-jp').classList.toggle('active', lang === 'jp');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      try { localStorage.setItem("lang", lang); } catch(e){}
+    }
+
+    // 2) Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      for(const e of entries){
+        if(e.isIntersecting) e.target.classList.add('show');
+      }
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // 3) Load language preference
+    let saved = "jp";
+    try { saved = localStorage.getItem("lang") || "jp"; } catch(e){}
+    setLang(saved);
+  </script>
+
+</body>
+</html>
           
