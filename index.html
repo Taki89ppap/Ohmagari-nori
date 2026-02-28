@@ -300,9 +300,11 @@
             <button id="btn-jp" class="active" onclick="setLang('jp')">JP</button>
             <button id="btn-en" onclick="setLang('en')">EN</button>
           </div>
+
+          <!-- ここは準備中表示（リンクしない） -->
           <div class="shop">
-            <a id="shopLink" href="SHOP_URL" target="_blank" rel="noopener">
-              <span data-jp="Shopifyで購入" data-en="Shop on Shopify"></span> ↗
+            <a id="shopLink" href="#" onclick="return false;">
+              <span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span> ↗
             </a>
           </div>
         </div>
@@ -324,9 +326,11 @@
          data-en="Rich waters flowing from fertile land. Nutrients carried by many rivers, and tidal differences reaching up to 6 meters each day. This unique environment nurtures the distinctive nori of the Ariake Sea."></p>
 
       <div class="cta reveal">
-        <a class="btn primary" href="SHOP_URL" target="_blank" rel="noopener">
-          <span data-jp="商品を見る" data-en="View Products"></span>
+        <!-- 商品リンクは準備中（リンクしない） -->
+        <a class="btn primary" href="#" onclick="return false;">
+          <span data-jp="現在オンライン販売準備中" data-en="Online store coming soon"></span>
         </a>
+
         <a class="btn" href="#story">
           <span data-jp="ストーリー" data-en="Our Story"></span>
         </a>
@@ -335,9 +339,10 @@
         </a>
       </div>
 
+      <!-- 準備中が自然に伝わる注釈に変更 -->
       <div class="note reveal"
-           data-jp="※写真は後で差し替えできます。まずは構成を完成させるのが正解。"
-           data-en="*You can replace photos later. The structure matters first."></div>
+           data-jp="※オンライン販売は現在準備中です。写真や商品情報は順次追加します。"
+           data-en="*Our online store is currently in preparation. Photos and product details will be added soon."></div>
     </div>
   </header>
 
@@ -430,9 +435,11 @@
           <h3 data-jp="ギフトにも" data-en="Great as a Gift"></h3>
           <p data-jp="産地のストーリーがあるものは、贈り物に強いです。パッケージ写真もあると信頼が一段上がります。"
              data-en="Products with a story make memorable gifts. Packaging photos also boost trust."></p>
+
+          <!-- ここも準備中（リンクしない） -->
           <div style="margin-top:18px">
-            <a class="btn primary" href="SHOP_URL" target="_blank" rel="noopener">
-              <span data-jp="Shopifyで購入する" data-en="Shop on Shopify"></span>
+            <a class="btn primary" href="#" onclick="return false;">
+              <span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span>
             </a>
           </div>
         </div>
@@ -455,7 +462,7 @@
       <div class="grid">
         <div class="card span-6 reveal">
           <h3 data-jp="1. シンボル（海・夕焼け）" data-en="1. Signature (Sea / Sunset)"></h3>
-          <p data-jp="トップに使う写真。あなたの夕焼けは最高。季節違いで2〜3枚あると強い。"
+          <p data-jp="トップに使う写真。夕焼けは最高。季節違いで2〜3枚あると強い。"
              data-en="Hero image for the top. Your sunset shot is perfect. Add 2–3 seasonal variations if possible."></p>
         </div>
         <div class="card span-6 reveal">
@@ -480,6 +487,7 @@
           <p data-jp="三世代が分かる写真。可能なら「海を背景に」「作業服で」自然体が一番強い。"
              data-en="A photo that clearly shows three generations. Ideally outdoors, near the sea, in work clothes—natural is best."></p>
         </div>
+
         <div class="card span-6 reveal">
           <h3 data-jp="6. 商品（食卓とパッケージ）" data-en="6. Product (Table & Packaging)"></h3>
           <p data-jp="白ご飯／おにぎり／味噌汁など“日常の食卓”。＋パッケージ正面。購入率が上がる。"
@@ -510,14 +518,8 @@
       document.getElementById('btn-jp').classList.toggle('active', lang === 'jp');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-      // Remember choice
       try { localStorage.setItem("lang", lang); } catch(e){}
     }
-
-    // Replace Shopify link placeholders
-    const SHOP_URL = "SHOP_URL"; // ← ここをあなたのShopify商品一覧 or コレクションURLに置換
-    document.querySelectorAll('a[href="SHOP_URL"]').forEach(a => a.href = SHOP_URL);
-    document.getElementById('shopLink').href = SHOP_URL;
 
     // 2) Scroll reveal
     const io = new IntersectionObserver((entries)=>{
