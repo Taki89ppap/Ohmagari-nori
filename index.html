@@ -1,378 +1,1311 @@
 <!DOCTYPE html>
-<html lang="ja">
+
+<html lang="ja" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ariake Sea Nori</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>有明海苔の歴史 | 1000年の技術変遷 / History of Ariake Nori</title>
+<meta name="description" content="縄文時代の天然採取から江戸の養殖誕生、1949年の科学革命、そして現代のAI品質管理まで。有明海苔1000年の技術変遷を図解で読む。">
+<meta name="keywords" content="有明海苔,海苔の歴史,海苔養殖,支柱式養殖,人工採苗,有明海,柳川">
+<meta name="robots" content="index, follow">
 
-<meta name="description" content="有明海で三世代続く海苔づくり。肥沃な大地と多くの河川が運ぶ豊富な栄養、最大約6メートルの干満差、自然の干出が生む口溶けの良さ。">
+<!-- OGP (SNSシェア用) -->
 
+<meta property="og:type" content="website">
+<meta property="og:title" content="有明海苔の歴史 | 1000年の技術変遷">
+<meta property="og:description" content="縄文から現代まで。有明海苔1000年の技術変遷を図解で読む。">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter Card -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="有明海苔の歴史 | 1000年の技術変遷">
+<meta name="twitter:description" content="縄文から現代まで。有明海苔1000年の技術変遷を図解で読む。">
+
+<!-- フォント先読み -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho+B1:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-
-:root{
---bg:#0b0f14;
---fg:#eef3fa;
---muted:rgba(238,243,250,.75);
---shadow:0 20px 60px rgba(0,0,0,.35);
---radius:18px;
+/* ============================================
+   和の配色システム
+   墨（sumi）× 海松（miru）× 朱（shu）× 金（kin）× 和紙（washi）
+   ============================================ */
+:root {
+  --sumi-dark:  #0e0d0b;
+  --sumi:       #181410;
+  --sumi-mid:   #211d17;
+  --sumi-light: #2d271f;
+  --miru:       #2a4a35;
+  --miru-light: #3d6b4f;
+  --miru-bright:#5a9970;
+  --shu:        #9b2a1a;
+  --shu-light:  #c44b38;
+  --kin:        #b8861e;
+  --kin-mid:    #d4a030;
+  --kin-light:  #f0c060;
+  --washi:      #f2ede4;
+  --washi-2:    #d8d2c4;
+  --washi-3:    #a89f90;
+  --washi-4:    #786e62;
+  --border-gold: rgba(212,160,48,0.3);
+  --border-gold-hi: rgba(212,160,48,0.65);
 }
 
-*{box-sizing:border-box;}
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
-background:var(--bg);
-color:var(--fg);
-line-height:1.85;
+- { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+background: var(–sumi);
+font-family: ‘Noto Serif JP’, ‘Cormorant Garamond’, serif;
+color: var(–washi);
+overflow-x: hidden;
+line-height: 1.7;
 }
 
-a{text-decoration:none;color:var(--fg);}
-
-.container{
-width:min(1060px,100%);
-margin:auto;
-padding:0 20px;
+/* ============ LANG TOGGLE ============ */
+.lang-toggle {
+position: fixed;
+top: 20px; right: 20px;
+z-index: 200;
+display: flex;
+border: 1px solid var(–kin);
+border-radius: 2px;
+overflow: hidden;
+background: var(–sumi-dark);
+}
+.lang-btn {
+padding: 7px 16px;
+background: transparent;
+color: var(–kin-light);
+border: none;
+cursor: pointer;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+letter-spacing: 0.08em;
+transition: all 0.25s;
+}
+.lang-btn.active {
+background: var(–kin);
+color: var(–sumi-dark);
+font-weight: 600;
 }
 
-/* topbar */
+/* ============ LANGUAGE VISIBILITY ============ */
+.ja { display: block; }
+.en { display: none; }
+.ija { display: inline; }
+.ien { display: none; }
+body.lang-en .ja { display: none; }
+body.lang-en .en { display: block; }
+body.lang-en .ija { display: none; }
+body.lang-en .ien { display: inline; }
 
-.topbar{
-position:fixed;
-top:16px;
-left:0;
-right:0;
-z-index:50;
-}
-
-.topbar-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(11,15,20,.6);
-border:1px solid rgba(255,255,255,.15);
-border-radius:999px;
-padding:10px 14px;
-backdrop-filter:blur(8px);
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.dot{
-width:10px;
-height:10px;
-background:white;
-border-radius:50%;
-}
-
-.brand-title{
-font-size:13px;
-letter-spacing:.08em;
-color:var(--muted);
-}
-
-.controls{
-display:flex;
-gap:10px;
-}
-
-.lang button{
-border:1px solid rgba(255,255,255,.25);
-background:transparent;
-color:white;
-padding:6px 10px;
-border-radius:999px;
-cursor:pointer;
-}
-
-.shop a{
-border:1px solid rgba(255,255,255,.25);
-padding:6px 12px;
-border-radius:999px;
-}
-
-/* hero */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-
+/* ============ HERO ============ */
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 100px 24px 80px;
+position: relative;
+overflow: hidden;
 background:
-linear-gradient(rgba(11,15,20,.3),rgba(11,15,20,.9)),
-url("IMG_7663.jpeg") center/cover no-repeat;
+radial-gradient(ellipse 80% 60% at 50% 70%, rgba(42,74,53,0.35) 0%, transparent 70%),
+var(–sumi-dark);
 }
 
-.hero-inner{
-padding:140px 0 80px;
+/* 和紙テクスチャ風グリッド */
+.hero::before {
+content: ‘’;
+position: absolute; inset: 0;
+background-image:
+linear-gradient(rgba(212,160,48,0.025) 1px, transparent 1px),
+linear-gradient(90deg, rgba(212,160,48,0.025) 1px, transparent 1px);
+background-size: 48px 48px;
+pointer-events: none;
 }
 
-.h1{
-font-size:clamp(34px,5vw,58px);
+/* 印章風デコレーション */
+.hero-seal {
+width: 64px; height: 64px;
+border: 2px solid var(–shu);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+margin-bottom: 24px;
+opacity: 0;
+animation: fadeUp 0.9s 0.2s forwards;
+}
+.hero-seal-inner {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: 11px;
+color: var(–shu-light);
+letter-spacing: 0.05em;
+text-align: center;
+line-height: 1.4;
 }
 
-.lead{
-max-width:60ch;
-font-size:18px;
-color:rgba(238,243,250,.9);
+.hero-eyebrow {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 12px;
+letter-spacing: 0.35em;
+color: var(–kin-mid);
+text-transform: uppercase;
+margin-bottom: 20px;
+opacity: 0;
+animation: fadeUp 0.9s 0.35s forwards;
 }
 
-.cta{
-margin-top:25px;
-display:flex;
-gap:12px;
+.hero-title {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: clamp(34px, 6vw, 68px);
+font-weight: 700;
+color: var(–washi);
+line-height: 1.15;
+margin-bottom: 10px;
+letter-spacing: 0.05em;
+opacity: 0;
+animation: fadeUp 0.9s 0.5s forwards;
 }
 
-.btn{
-padding:12px 20px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,.25);
-background:rgba(255,255,255,.08);
+.hero-title-en {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: clamp(18px, 3vw, 32px);
+font-weight: 400;
+color: var(–kin-light);
+margin-bottom: 28px;
+opacity: 0;
+animation: fadeUp 0.9s 0.65s forwards;
 }
 
-.btn.primary{
-background:rgba(255,255,255,.2);
+.hero-desc {
+font-size: clamp(13px, 1.6vw, 16px);
+color: var(–washi-3);
+max-width: 560px;
+line-height: 2;
+opacity: 0;
+animation: fadeUp 0.9s 0.8s forwards;
 }
 
-/* sections */
-
-section{
-padding:80px 0;
+.hero-nendai {
+margin-top: 48px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(56px, 10vw, 110px);
+font-weight: 600;
+color: rgba(212,160,48,0.07);
+letter-spacing: -0.02em;
+line-height: 1;
+opacity: 0;
+animation: fadeUp 0.9s 1s forwards;
+user-select: none;
 }
 
-.section-title{
-font-size:28px;
-margin-bottom:12px;
+/* 波 */
+.wave-sep {
+width: 100%;
+line-height: 0;
+margin-top: -2px;
+}
+.wave-sep svg { display: block; width: 100%; }
+
+/* ============ TIMELINE WRAPPER ============ */
+.timeline-wrap {
+padding: 70px 0 100px;
+background: var(–sumi);
+position: relative;
 }
 
-.section-sub{
-color:var(--muted);
-max-width:70ch;
+.tl-intro {
+text-align: center;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 11px;
+letter-spacing: 0.35em;
+color: var(–kin-mid);
+text-transform: uppercase;
+margin-bottom: 64px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(12,1fr);
-gap:18px;
+/* ============ ERA BLOCK ============ */
+.era {
+max-width: 860px;
+margin: 0 auto 72px;
+padding: 0 24px;
+opacity: 0;
+transform: translateY(28px);
+transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.era.visible { opacity: 1; transform: translateY(0); }
+
+/* 時代番号＋横線 */
+.era-header {
+display: flex;
+align-items: center;
+gap: 16px;
+margin-bottom: 20px;
+}
+.era-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 11px;
+color: var(–kin-mid);
+letter-spacing: 0.2em;
+white-space: nowrap;
+flex-shrink: 0;
+}
+.era-rule {
+flex: 1;
+height: 1px;
+background: linear-gradient(90deg, var(–kin), transparent);
+}
+.era-dot {
+width: 10px; height: 10px;
+border-radius: 50%;
+border: 1.5px solid var(–kin);
+background: var(–sumi);
+flex-shrink: 0;
+}
+.era-dot.active { background: var(–kin); box-shadow: 0 0 10px rgba(212,160,48,0.5); }
+
+/* カード */
+.era-card {
+background: var(–sumi-mid);
+border: 1px solid var(–border-gold);
+border-radius: 2px;
+padding: 36px 36px 28px;
+position: relative;
+transition: border-color 0.3s;
+}
+.era-card:hover { border-color: var(–border-gold-hi); }
+
+/* 上辺アクセントライン */
+.era-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 2px;
+border-radius: 2px 2px 0 0;
+}
+.era-card.accent-kin::before { background: linear-gradient(90deg, var(–kin), transparent); }
+.era-card.accent-miru::before { background: linear-gradient(90deg, var(–miru-bright), transparent); }
+.era-card.accent-shu::before { background: linear-gradient(90deg, var(–shu), transparent); }
+.era-card.accent-washi::before { background: linear-gradient(90deg, var(–washi-3), transparent); }
+
+.era-period {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(26px, 4vw, 42px);
+font-weight: 600;
+color: var(–kin-light);
+line-height: 1;
+margin-bottom: 4px;
 }
 
-.card{
-background:rgba(255,255,255,.05);
-padding:22px;
-border-radius:var(--radius);
+.era-name {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: clamp(17px, 2.2vw, 22px);
+color: var(–washi);
+margin-bottom: 2px;
+letter-spacing: 0.05em;
 }
 
-.span-4{grid-column:span 4;}
-.span-6{grid-column:span 6;}
-.span-12{grid-column:1/-1;}
-
-/* images */
-
-.img{
-background:#111;
-min-height:320px;
-border-radius:var(--radius);
-position:relative;
+.era-name-en {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: 15px;
+color: var(–washi-3);
+margin-bottom: 28px;
 }
 
-.img-label{
-position:absolute;
-bottom:14px;
-left:16px;
-font-size:12px;
-color:#aaa;
+/* ============ NARRATIVE ============ */
+.narrative {
+font-size: 14.5px;
+line-height: 2;
+color: var(–washi-2);
+margin-bottom: 24px;
 }
 
-.img.bg-mudflat{background:url("mudflat.jpg") center/cover no-repeat;}
-.img.bg-work{background:url("work.jpg") center/cover no-repeat;}
-.img.bg-family{background:url("family.jpg") center/cover no-repeat;}
-.img.bg-product{background:url("product.jpg") center/cover no-repeat;}
-.img.bg-package{background:url("package.jpg") center/cover no-repeat;}
-
-/* footer */
-
-footer{
-padding:60px 0;
-border-top:1px solid rgba(255,255,255,.1);
-color:#888;
+/* ============ DIAGRAM BOX ============ */
+.diagram {
+background: var(–sumi-dark);
+border: 1px solid rgba(212,160,48,0.15);
+border-radius: 2px;
+padding: 24px 28px;
+margin-bottom: 24px;
+}
+.diagram-label {
+font-size: 10px;
+letter-spacing: 0.3em;
+color: var(–kin-mid);
+text-transform: uppercase;
+font-family: ‘Cormorant Garamond’, serif;
+margin-bottom: 18px;
 }
 
-/* reveal */
-
-.reveal{
-opacity:0;
-transform:translateY(12px);
-transition:.7s;
+/* 横並びフロー */
+.flow {
+display: flex;
+align-items: flex-start;
+gap: 6px;
+flex-wrap: wrap;
+}
+.flow-step {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+min-width: 72px;
+}
+.flow-icon {
+width: 60px; height: 60px;
+border-radius: 50%;
+border: 1px solid rgba(212,160,48,0.3);
+background: var(–sumi-mid);
+display: flex; align-items: center; justify-content: center;
+font-size: 26px;
+flex-shrink: 0;
+}
+.flow-label {
+font-size: 11px;
+text-align: center;
+color: var(–washi-2);
+line-height: 1.5;
+max-width: 72px;
+}
+.flow-arrow {
+color: var(–kin);
+font-size: 16px;
+margin-top: 22px;
+flex-shrink: 0;
 }
 
-.reveal.show{
-opacity:1;
-transform:none;
+/* ============ 比較グリッド ============ */
+.compare {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+margin-bottom: 24px;
+}
+.compare-col {
+padding: 18px 20px;
+border-radius: 2px;
+}
+.compare-col.neg {
+background: rgba(155,42,26,0.08);
+border: 1px solid rgba(155,42,26,0.35);
+}
+.compare-col.pos {
+background: rgba(42,74,53,0.12);
+border: 1px solid rgba(90,153,112,0.35);
+}
+.compare-head {
+font-size: 10px;
+letter-spacing: 0.2em;
+font-family: ‘Cormorant Garamond’, serif;
+margin-bottom: 12px;
+font-weight: 600;
+}
+.compare-col.neg .compare-head { color: var(–shu-light); }
+.compare-col.pos .compare-head { color: var(–miru-bright); }
+.compare-item {
+font-size: 12.5px;
+color: var(–washi-2);
+padding: 5px 0;
+border-bottom: 1px solid rgba(255,255,255,0.06);
+line-height: 1.55;
+display: flex; gap: 7px; align-items: flex-start;
+}
+.compare-item:last-child { border-bottom: none; }
+.ci-neg { color: var(–shu-light); flex-shrink: 0; }
+.ci-pos { color: var(–miru-bright); flex-shrink: 0; }
+
+/* ============ ハイライトボックス ============ */
+.highlight {
+border: 1px solid var(–kin);
+background: rgba(212,160,48,0.06);
+border-radius: 2px;
+padding: 20px 24px;
+margin-bottom: 24px;
+position: relative;
+}
+.highlight::before {
+content: attr(data-label);
+position: absolute;
+top: -11px; left: 20px;
+background: var(–sumi-mid);
+padding: 0 10px;
+font-size: 11px;
+color: var(–kin-light);
+font-family: ‘Cormorant Garamond’, serif;
+letter-spacing: 0.1em;
+}
+.highlight-title {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: 15px;
+color: var(–kin-light);
+margin-bottom: 8px;
+}
+.highlight-desc {
+font-size: 13.5px;
+color: var(–washi-2);
+line-height: 1.85;
 }
 
-@media(max-width:920px){
-.span-4,.span-6{grid-column:1/-1;}
+/* 緑ハイライト */
+.highlight.green {
+border-color: var(–miru-bright);
+background: rgba(42,74,53,0.1);
+}
+.highlight.green::before { color: var(–miru-bright); }
+.highlight.green .highlight-title { color: var(–miru-bright); }
+
+/* ============ KEY POINTS ============ */
+.kp-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+gap: 14px;
+margin-bottom: 24px;
+}
+.kp {
+padding: 18px 20px;
+border-left: 2px solid var(–kin);
+background: var(–sumi-light);
+border-radius: 0 2px 2px 0;
+}
+.kp-icon { font-size: 22px; margin-bottom: 8px; }
+.kp-title {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: 14px;
+color: var(–washi);
+margin-bottom: 3px;
+}
+.kp-title-en {
+font-size: 10px;
+color: var(–kin-mid);
+letter-spacing: 0.1em;
+font-family: ‘Cormorant Garamond’, serif;
+margin-bottom: 6px;
+}
+.kp-desc { font-size: 12.5px; color: var(–washi-3); line-height: 1.7; }
+
+/* ============ タグ ============ */
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+.tag {
+padding: 3px 11px;
+border: 1px solid var(–border-gold);
+border-radius: 1px;
+font-size: 11px;
+color: var(–kin-mid);
+letter-spacing: 0.1em;
+font-family: ‘Cormorant Garamond’, serif;
 }
 
+/* ============ FOUNDER BADGE ============ */
+.founder-badge {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+background: rgba(212,160,48,0.07);
+border: 1px solid var(–kin);
+padding: 18px 22px;
+border-radius: 2px;
+margin-top: 20px;
+}
+.fb-seal {
+width: 48px; height: 48px;
+border: 1.5px solid var(–shu);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+flex-shrink: 0;
+font-size: 20px;
+}
+.fb-text { font-size: 13px; color: var(–washi-2); line-height: 1.7; }
+.fb-title {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: 15px;
+color: var(–kin-light);
+display: block;
+margin-bottom: 4px;
+}
+
+/* ============ SUMMARY TIMELINE ============ */
+.summary-section {
+max-width: 860px;
+margin: 0 auto;
+padding: 0 24px 80px;
+}
+.summary-title {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: clamp(18px, 2.5vw, 24px);
+text-align: center;
+color: var(–washi);
+margin-bottom: 48px;
+letter-spacing: 0.05em;
+}
+.tl-spine-wrap { position: relative; padding-bottom: 40px; }
+.tl-spine {
+position: absolute;
+left: 50%; top: 0; bottom: 0;
+width: 1px;
+background: linear-gradient(180deg, var(–kin) 0%, rgba(212,160,48,0.05) 100%);
+transform: translateX(-50%);
+}
+.tl-items { display: flex; flex-direction: column; }
+.tl-item {
+display: grid;
+grid-template-columns: 1fr 32px 1fr;
+align-items: center;
+min-height: 76px;
+}
+.tl-left { text-align: right; padding: 8px 24px 8px 0; }
+.tl-right { text-align: left; padding: 8px 0 8px 24px; }
+.tl-mid { display: flex; justify-content: center; align-items: center; position: relative; }
+.tl-node {
+width: 11px; height: 11px;
+border-radius: 50%;
+background: var(–kin);
+border: 2px solid var(–sumi);
+outline: 1px solid var(–kin);
+z-index: 2; flex-shrink: 0;
+}
+.tl-node.big {
+width: 16px; height: 16px;
+box-shadow: 0 0 14px rgba(212,160,48,0.6);
+}
+.tl-year {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+color: var(–kin-light);
+font-weight: 600;
+}
+.tl-desc { font-size: 12.5px; color: var(–washi-2); margin-top: 2px; line-height: 1.55; }
+.tl-sub { font-size: 11px; color: var(–washi-4); margin-top: 1px; font-style: italic; font-family: ‘Cormorant Garamond’, serif; }
+
+/* ============ CLOSING ============ */
+.closing {
+max-width: 860px;
+margin: 0 auto 80px;
+padding: 0 24px;
+}
+.closing-inner {
+background: linear-gradient(135deg, rgba(42,74,53,0.2), rgba(26,20,16,0.6));
+border: 1px solid rgba(212,160,48,0.45);
+border-radius: 2px;
+padding: 48px 40px;
+text-align: center;
+position: relative;
+}
+.closing-inner::before {
+content: ‘有明の海’;
+position: absolute;
+top: -14px; left: 50%;
+transform: translateX(-50%);
+background: var(–sumi);
+padding: 0 14px;
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: 16px;
+color: var(–kin-mid);
+}
+.closing-quote {
+font-family: ‘Shippori Mincho B1’, serif;
+font-size: clamp(15px, 2.2vw, 20px);
+color: var(–washi);
+line-height: 2;
+margin-bottom: 16px;
+}
+.closing-quote-en {
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+font-size: clamp(13px, 1.8vw, 17px);
+color: var(–washi-3);
+line-height: 1.8;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 600px) {
+.era-card { padding: 24px 18px 20px; }
+.compare { grid-template-columns: 1fr; }
+.flow { justify-content: center; }
+.tl-item { grid-template-columns: 1fr 20px 1fr; }
+.tl-left, .tl-right { padding-left: 10px; padding-right: 10px; }
+.closing-inner { padding: 40px 24px; }
+}
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="topbar">
-<div class="container">
-<div class="topbar-inner">
+<!-- 言語切替 -->
 
-<div class="brand">
-<span class="dot"></span>
-<span class="brand-title">ARI-AKE SEA NORI</span>
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+  <button class="lang-btn"        onclick="setLang('en')">English</button>
 </div>
 
-<div class="controls">
+<!-- ======== HERO ======== -->
 
-<div class="lang">
-<button id="btn-jp" onclick="setLang('jp')">JP</button>
-<button id="btn-en" onclick="setLang('en')">EN</button>
-</div>
-
-<div class="shop">
-<a href="#">
-<span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span>
-</a>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-<header class="hero">
-<div class="container hero-inner">
-
-<h1 class="h1 reveal"
-data-jp="有明海で三世代続く海苔づくり。"
-data-en="Three Generations of Nori Farming in Ariake Sea.">
-</h1>
-
-<p class="lead reveal"
-data-jp="肥沃な大地から流れ込む豊かな水。多くの河川が運ぶ栄養と、一日最大約6メートルの干満差。この唯一の環境が、有明海ならではの海苔を育てます。"
-data-en="Rich waters flowing from fertile land. Nutrients carried by many rivers and tidal differences reaching up to 6 meters each day. This unique environment nurtures Ariake nori.">
-</p>
-
-<div class="cta reveal">
-<a class="btn primary" href="#">
-<span data-jp="オンライン販売準備中" data-en="Online store coming soon"></span>
-</a>
-</div>
-
-</div>
-</header>
-
-<section>
-<div class="container">
-
-<h2 class="section-title reveal"
-data-jp="有明海という特別な環境"
-data-en="A Unique Marine Environment"></h2>
-
-<div class="grid">
-
-<div class="card span-4 reveal">
-<h3 data-jp="肥沃な大地" data-en="Fertile Land"></h3>
-<p data-jp="周囲の肥沃な大地と多くの河川が、海へ豊富な栄養を運びます。"
-data-en="Water from fertile land and rivers carries nutrients into the sea."></p>
-</div>
-
-<div class="card span-4 reveal">
-<h3 data-jp="干満差 約6m" data-en="Tidal Range"></h3>
-<p data-jp="有明海は日本最大級の干満差を持つ海です。"
-data-en="The Ariake Sea has one of the largest tidal ranges in Japan."></p>
-</div>
-
-<div class="card span-4 reveal">
-<h3 data-jp="自然の干出" data-en="Natural Exposure"></h3>
-<p data-jp="潮が引くと海苔網は空気に触れ、繊細な口溶けを生みます。"
-data-en="When the tide recedes, nori nets are naturally exposed to air."></p>
-</div>
-
-<div class="img span-12 reveal bg-mudflat">
-<div class="img-label">Ariake Sea</div>
-</div>
-
-</div>
-</div>
+<section class="hero">
+  <div class="hero-seal">
+    <div class="hero-seal-inner">有明<br>海苔</div>
+  </div>
+  <p class="hero-eyebrow">Ariake Sea · Fukuoka · Est. 1950s</p>
+  <h1 class="hero-title ja">有明海苔の歴史</h1>
+  <h1 class="hero-title en">History of Ariake Nori</h1>
+  <p class="hero-title-en ja">縄文の海藻から、現代の科学へ</p>
+  <p class="hero-title-en en">From Ancient Harvest to Modern Science</p>
+  <p class="hero-desc ja">縄文時代に食べられていた海苔が、江戸の養殖技術、20世紀の科学革命を経て現在に至る。有明海の干潟とともに歩んだ、職人たちの1000年以上の物語。</p>
+  <p class="hero-desc en">Nori eaten since the Jomon period. Cultivated in Edo-era Tokyo Bay. Transformed by a British scientist's discovery. This is the story of over a thousand years of craft, science, and the Ariake tidal flat.</p>
+  <div class="hero-nendai">1000+</div>
 </section>
 
-<section>
-<div class="container">
+<!-- 波区切り -->
 
-<h2 class="section-title reveal"
-data-jp="三世代の海苔づくり"
-data-en="Three Generations"></h2>
-
-<div class="grid">
-
-<div class="img span-6 reveal bg-work">
-<div class="img-label">Work</div>
+<div class="wave-sep">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#181410"/>
+  </svg>
 </div>
 
-<div class="card span-6 reveal">
-<p data-jp="祖父の代から続く海苔づくり。潮の流れ、海の状態、天候を見ながら自然と向き合っています。"
-data-en="Our nori farming began with our grandfather and continues today."></p>
+<!-- ======== TIMELINE ======== -->
+
+<div class="timeline-wrap">
+  <p class="tl-intro ja">時代を超えた技術の系譜</p>
+  <p class="tl-intro en">A lineage of craft across the centuries</p>
+
+  <!-- ===== ERA 1: 縄文〜江戸以前 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">01 ／ 縄文〜江戸初期</span>
+      <span class="era-num en">01 ／ Jomon to Early Edo</span>
+      <div class="era-rule"></div>
+      <div class="era-dot"></div>
+    </div>
+    <div class="era-card accent-washi">
+      <div class="era-period">〜1600年代</div>
+      <div class="era-name ja">天然採取の時代</div>
+      <div class="era-name en">The Age of Natural Harvest</div>
+      <div class="era-name-en ja">Nature's Gift — Uncontrolled</div>
+      <div class="era-name-en en">Before Cultivation</div>
+
+```
+  <p class="narrative ja">「ノリ」という言葉が文献に初めて登場するのは奈良時代の『常陸風土記』。日本武尊が浜辺に干された海苔を目にしたという記述がある。平安時代には宮中への献上品の筆頭として記録され、貴族の食卓にのぼっていた。しかしこの時代の海苔は、岩や流木に自然に生えたものをそのまま採るだけ。量も安定せず、完全に「海まかせ」だった。豊臣秀吉の饗応膳にも海苔が記録されているが、養殖という概念はまだ存在していない。</p>
+  <p class="narrative en">The word "nori" first appears in the 8th century Hitachi Fudoki, where Yamato Takeru sees sheets of seaweed drying on a beach. By the Heian period, nori was a prized tribute to the Imperial court. But this was entirely wild harvest — gathered from rocks and driftwood, utterly dependent on nature. Even at Toyotomi Hideyoshi's banquets, nori appeared on the table. Cultivation had not yet been imagined.</p>
+
+  <div class="diagram">
+    <div class="diagram-label ja">採取の仕組み（養殖なし）</div>
+    <div class="diagram-label en">How It Worked — No Cultivation</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-icon">🌊</div>
+        <div class="flow-label ja">岩・流木に自然着生</div>
+        <div class="flow-label en">Wild growth on rocks & driftwood</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🤲</div>
+        <div class="flow-label ja">手で採取</div>
+        <div class="flow-label en">Hand gathering</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">☀️</div>
+        <div class="flow-label ja">天日干し<br>（展延法）</div>
+        <div class="flow-label en">Sun drying (spread method)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🍱</div>
+        <div class="flow-label ja">貴族・宮中へ</div>
+        <div class="flow-label en">Court & nobility</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kp-grid">
+    <div class="kp">
+      <div class="kp-icon">📜</div>
+      <div class="kp-title ja">文献初出</div>
+      <div class="kp-title en">First Written Record</div>
+      <div class="kp-title-en">Hitachi Fudoki, 8th c.</div>
+      <div class="kp-desc ja">奈良時代『常陸風土記』に「海苔」の記述。宮中への献上品第一等と記録</div>
+      <div class="kp-desc en">The Hitachi Fudoki (8th century) documents nori as the premier tribute to the Imperial court</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🌿</div>
+      <div class="kp-title ja">板海苔の誕生（江戸中期）</div>
+      <div class="kp-title en">Birth of Sheet Nori</div>
+      <div class="kp-title-en">Edo Period Innovation</div>
+      <div class="kp-desc ja">浅草の和紙製法を海苔に転用。「簀（す）」で漉く板海苔が登場し、海苔巻きが庶民に大流行</div>
+      <div class="kp-desc en">Washi paper-making techniques applied to nori. Sheet nori emerges; nori rolls become Edo street food</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag ja">天然採取</span><span class="tag en">Wild Harvest</span>
+    <span class="tag ja">宮中献上品</span><span class="tag en">Imperial Tribute</span>
+    <span class="tag ja">展延法</span><span class="tag en">Spread Drying</span>
+    <span class="tag ja">完全自然依存</span><span class="tag en">Nature Dependent</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ===== ERA 2: 江戸〜明治 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">02 ／ 江戸〜明治</span>
+      <span class="era-num en">02 ／ Edo to Meiji</span>
+      <div class="era-rule"></div>
+      <div class="era-dot"></div>
+    </div>
+    <div class="era-card accent-kin">
+      <div class="era-period">1600〜1900年代</div>
+      <div class="era-name ja">養殖の誕生と「運草」の時代</div>
+      <div class="era-name en">Birth of Cultivation — and the "Gamble Weed" Era</div>
+      <div class="era-name-en ja">Experience and Luck — No Science Yet</div>
+      <div class="era-name-en en">Tokyo Bay Origins · Spreading Nationwide</div>
+
+```
+  <p class="narrative ja">江戸時代、漁師が魚の生け簀に使っていた「ソダヒビ（枝を束ねた支柱）」に、冬になると海苔が自然に生えることに気づいた。これが養殖の始まり。東京湾・大森を中心に展開し、徳川将軍家への献上品「御前海苔」として確立する。しかし海苔の生活史（種がどこでどう育つか）はまったく解明されておらず、採苗は完全に「経験と勘」。豊作かどうかは文字通り運次第で、「運草（うんぐさ）」と呼ばれていた。江戸末期〜明治期には技術が各地に伝播し、九州・有明海でも養殖が始まる。</p>
+  <p class="narrative en">Edo-era fishermen noticed nori growing on the "sodahibi" stakes they used for fish traps in winter. This accidental observation sparked Japan's first nori cultivation in Tokyo Bay, centered on Omori, eventually becoming the prized "Gozennori" tribute to the Tokugawa shoguns. But since the nori life cycle was completely unknown, seed attachment was pure experience and intuition. A good harvest was pure luck — so nori was called "Ungusa," the "Gamble Weed." Techniques spread nationwide in the late Edo and Meiji eras, reaching Kyushu and the Ariake Sea.</p>
+
+  <div class="highlight" data-label="重要史実">
+    <div class="highlight-title ja">「運草（うんぐさ）」— なぜ海苔はギャンブルだったのか</div>
+    <div class="highlight-title en">"Ungusa" — Why Nori Was Called the Gamble Weed</div>
+    <div class="highlight-desc ja">海苔の種（胞子）がどこから来るのか、夏の間どこにいるのかが一切不明だった。そのため種付けは「良い場所にひびを立てれば胞子がつくかもしれない」という経験則のみ。豊作なら大金、不作なら借金。まさに博打だった。この謎が解けるのは20世紀半ば、しかも<strong style="color:var(--kin-light)">イギリス人女性科学者</strong>の手によって——。</div>
+    <div class="highlight-desc en">No one knew where nori spores came from, or where the plant went in summer. Seed attachment was pure guesswork — plant stakes in a good spot and hope spores attach. A good year meant wealth; a bad year meant debt. The mystery would only be solved in the mid-20th century — by a <strong style="color:var(--kin-light)">British female scientist who never visited Japan</strong>.</div>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-label ja">江戸時代の養殖（ソダヒビ式）</div>
+    <div class="diagram-label en">Edo-era Cultivation — The Sodahibi Method</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-icon">🎋</div>
+        <div class="flow-label ja">ソダヒビを海に立てる<br>（枝を束ねた支柱）</div>
+        <div class="flow-label en">Plant sodahibi stakes in shallow bay</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🙏</div>
+        <div class="flow-label ja">胞子が着くのを祈る<br>（完全に運任せ）</div>
+        <div class="flow-label en">Pray spores attach (pure luck)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">✋</div>
+        <div class="flow-label ja">手摘みで収穫</div>
+        <div class="flow-label en">Hand harvest</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">📄</div>
+        <div class="flow-label ja">簀で漉いて板海苔に</div>
+        <div class="flow-label en">Form into sheets</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🏯</div>
+        <div class="flow-label ja">将軍家への献上<br>御前海苔</div>
+        <div class="flow-label en">Tribute to the Shogunate</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kp-grid">
+    <div class="kp">
+      <div class="kp-icon">🎣</div>
+      <div class="kp-title ja">大森・品川が発祥地</div>
+      <div class="kp-title en">Omori, Tokyo Bay — The Origin</div>
+      <div class="kp-title-en">17th century onwards</div>
+      <div class="kp-desc ja">「武江年表」に記録。徳川将軍家への御前海苔産地として確立。最盛期は2,000以上の漁家</div>
+      <div class="kp-desc en">Recorded in the Bukō Nenpyō. Peak period had 2,000+ nori fishing households in Omori alone</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🗺️</div>
+      <div class="kp-title ja">明治期に九州へ伝播</div>
+      <div class="kp-title en">Spreading to Kyushu — Meiji Era</div>
+      <div class="kp-title-en">Late 19th century</div>
+      <div class="kp-desc ja">大牟田地区は明治期から有明での養殖を開始。九州では最も歴史の古い産地のひとつ</div>
+      <div class="kp-desc en">Omuta area began Ariake cultivation in the Meiji era — one of Kyushu's earliest nori regions</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag ja">ソダヒビ式</span><span class="tag en">Sodahibi Stakes</span>
+    <span class="tag ja">運草</span><span class="tag en">Ungusa — Gamble Weed</span>
+    <span class="tag ja">御前海苔</span><span class="tag en">Gozennori</span>
+    <span class="tag ja">経験と勘のみ</span><span class="tag en">Pure Intuition</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ===== ERA 3: 戦前〜戦後 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">03 ／ 明治末〜戦後</span>
+      <span class="era-num en">03 ／ Late Meiji to Postwar</span>
+      <div class="era-rule"></div>
+      <div class="era-dot"></div>
+    </div>
+    <div class="era-card accent-washi">
+      <div class="era-period">1900〜1950年代</div>
+      <div class="era-name ja">戦争・不作・そして謎の解明前夜</div>
+      <div class="era-name en">War, Failure, and the Eve of Discovery</div>
+      <div class="era-name-en ja">The Darkest Hour Before the Dawn</div>
+      <div class="era-name-en en">Crisis That Changed Everything</div>
+
+```
+  <p class="narrative ja">明治〜大正にかけて有明海での養殖が拡大。しかし相変わらず生産は不安定で、不作の年には深刻な打撃を受けた。戦時中は空襲で漁場が壊滅し、道具・船・ひびを作り直すところから再出発。御社の創業はまさにこの時代——戦後の焼け野原から海苔養殖を一から立て上げた世代。そして1940年代後半から50年代にかけて、長年の謎を解く歴史的発見がもたらされようとしていた。</p>
+  <p class="narrative en">Ariake Sea cultivation expanded through Meiji and Taisho, but harvests remained brutally unpredictable. War destroyed fishing grounds, boats, and equipment — growers rebuilt from nothing. Your company's founding sits in this era: rebuilding nori cultivation from the ashes of postwar Japan. And in the late 1940s, a discovery from the other side of the world was about to change everything.</p>
+
+  <div class="founder-badge">
+    <div class="fb-seal">🏮</div>
+    <div class="fb-text">
+      <span class="fb-title ja">創業の時代</span>
+      <span class="fb-title en">The Founding Era</span>
+      <span class="ja">御社の70年以上の歴史はこの戦後復興期から始まった。ソダヒビと手作業からゼロで積み上げ、今に繋がる職人の系譜の起点。</span>
+      <span class="en">Your 70+ year legacy begins here — rebuilding from scratch, with traditional stakes and bare hands, in the rubble of postwar Japan.</span>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag ja">戦後復興</span><span class="tag en">Postwar Reconstruction</span>
+    <span class="tag ja">創業</span><span class="tag en">Company Founded</span>
+    <span class="tag ja">依然として経験と勘</span><span class="tag en">Still Intuition-Based</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ===== ERA 4: 科学革命 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">04 ／ 1949〜1960年代</span>
+      <span class="era-num en">04 ／ 1949–1960s</span>
+      <div class="era-rule"></div>
+      <div class="era-dot active"></div>
+    </div>
+    <div class="era-card accent-kin">
+      <div class="era-period">1949〜1965年</div>
+      <div class="era-name ja">科学革命——「運草」の謎、解ける</div>
+      <div class="era-name en">The Scientific Revolution — The Mystery Solved</div>
+      <div class="era-name-en ja">A British Woman Changes Japanese Nori Forever</div>
+      <div class="era-name-en en">Kathleen Drew-Baker · Mother of the Sea</div>
+
+```
+  <p class="narrative ja">1949年、イギリスの藻類学者キャスリーン・ドリュー＝ベーカーが、長年の謎を解いた。「海苔は夏の間、カキの貝殻の中で糸状体として過ごしている」——誰も知らなかった海苔の生活史が初めて解明されたのだ。彼女は一度も日本を訪れることなく、論文だけでこの発見を世界に発表。九州大学の瀬川宗吉がこれを知り、熊本県水産試験場の太田扶桑男らが実用化研究を進め、1953年に人工採苗に成功。これにより「運草」は「管理できる作物」に変わった。日本の海苔産地では彼女を「海苔の母（Mother of the Sea）」と呼び、熊本県宇土市に記念碑が建てられ今も毎年感謝祭が行われる。</p>
+  <p class="narrative en">In 1949, British phycologist Kathleen Mary Drew-Baker solved the centuries-old mystery: nori spends summer as a filamentous stage inside oyster shells. She published her findings without ever visiting Japan. Professor Segawa at Kyushu University read the paper; Fumio Ota at the Kumamoto Fisheries Research Institute applied it practically. By 1953, artificial seeding was achieved. "Ungusa" — the Gamble Weed — was now a controllable crop. Japan's nori producers call her "Mother of the Sea." A monument stands in Kumamoto; an annual thanksgiving ceremony is held to this day.</p>
+
+  <div class="highlight" data-label="歴史的発見">
+    <div class="highlight-title ja">ドリュー女史の発見——なぜこんなに重要だったか</div>
+    <div class="highlight-title en">Why Drew-Baker's Discovery Was Everything</div>
+    <div class="highlight-desc ja">
+      <strong style="color:var(--kin-light)">発見前：</strong>海苔の「種」がどこにあるか不明 → 自然着生を待つだけ → 不作は防げない<br>
+      <strong style="color:var(--miru-bright)">発見後：</strong>貝殻の中の糸状体＝種と判明 → 人間が種を管理・培養できる → 「いつ・どこに・何枚」を計画できる<br><br>
+      農業に例えると「種が土の中にあることを初めて知った」に等しい発見。300年の謎が一人のイギリス人女性によって解かれた。
+    </div>
+    <div class="highlight-desc en">
+      <strong style="color:var(--kin-light)">Before:</strong> Unknown where nori "seeds" were → wait for natural attachment → can't prevent crop failure<br>
+      <strong style="color:var(--miru-bright)">After:</strong> Filamentous stage in oyster shells identified → humans can cultivate seeds → production can be planned<br><br>
+      The agricultural equivalent of discovering that seeds come from the ground. Three centuries of mystery solved by one British woman who never set foot in Japan.
+    </div>
+  </div>
+
+  <div class="diagram">
+    <div class="diagram-label ja">人工採苗の仕組み（1953年〜）</div>
+    <div class="diagram-label en">How Artificial Seeding Works — From 1953</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-icon">🐚</div>
+        <div class="flow-label ja">カキ殻に糸状体を培養<br>（3〜9月）</div>
+        <div class="flow-label en">Cultivate filaments in oyster shells (Mar–Sep)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🌡️</div>
+        <div class="flow-label ja">水温が下がると殻胞子を放出</div>
+        <div class="flow-label en">Spores released when water cools</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🕸️</div>
+        <div class="flow-label ja">網に胞子を付着させる<br>（タネ付け）</div>
+        <div class="flow-label en">Attach spores to nori nets (seeding)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">❄️</div>
+        <div class="flow-label ja">冷凍保存<br>（適温まで待機）</div>
+        <div class="flow-label en">Store frozen until water temperature is right</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-icon">🌊</div>
+        <div class="flow-label ja">最適タイミングで海へ</div>
+        <div class="flow-label en">Deploy at optimal timing</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kp-grid">
+    <div class="kp">
+      <div class="kp-icon">🔬</div>
+      <div class="kp-title ja">ドリュー＝ベーカー（1949年）</div>
+      <div class="kp-title en">Drew-Baker, 1949</div>
+      <div class="kp-title-en">Manchester University</div>
+      <div class="kp-desc ja">海苔のコンコセリス期（貝殻内糸状体）を解明。日本を訪れず論文のみで世界の海苔養殖を変えた</div>
+      <div class="kp-desc en">Identified the conchocelis (filamentous) stage in oyster shells. Changed global nori cultivation without ever visiting Japan</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🧪</div>
+      <div class="kp-title ja">人工採苗の実用化（1953年）</div>
+      <div class="kp-title en">Artificial Seeding, 1953</div>
+      <div class="kp-title-en">Kumamoto Fisheries Lab</div>
+      <div class="kp-desc ja">熊本県水産試験場・太田扶桑男らが実用化に成功。「運草」が「計画できる作物」へ転換</div>
+      <div class="kp-desc en">Fumio Ota and colleagues at Kumamoto successfully applied Drew-Baker's discovery. The Gamble Weed became a planned crop</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">❄️</div>
+      <div class="kp-title ja">冷凍網の普及（1960年代〜）</div>
+      <div class="kp-title en">Frozen Net Method, 1960s+</div>
+      <div class="kp-title-en">Production Planning Revolution</div>
+      <div class="kp-desc ja">種付き網を冷凍保存し、適温時に展開。生産開始のタイミングを人間がコントロールできるようになった</div>
+      <div class="kp-desc en">Seed-attached nets stored frozen, deployed when conditions are optimal. Humans now control the start of the growing season</div>
+    </div>
+  </div>
+
+  <div class="tags">
+    <span class="tag ja">ドリュー女史</span><span class="tag en">Drew-Baker</span>
+    <span class="tag ja">人工採苗1953年</span><span class="tag en">Artificial Seeding 1953</span>
+    <span class="tag ja">冷凍網工法</span><span class="tag en">Frozen Net Method</span>
+    <span class="tag ja">科学が勘を超えた年</span><span class="tag en">Science Beats Intuition</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ===== ERA 5: 支柱式と品種の変化 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">05 ／ 1960〜2000年代</span>
+      <span class="era-num en">05 ／ 1960s–2000s</span>
+      <div class="era-rule"></div>
+      <div class="era-dot"></div>
+    </div>
+    <div class="era-card accent-shu">
+      <div class="era-period">1960〜2000年代</div>
+      <div class="era-name ja">機械化・大量生産・価格競争の時代</div>
+      <div class="era-name en">Mechanization, Mass Production, Price War</div>
+      <div class="era-name-en ja">The Trap of Sameness</div>
+      <div class="era-name-en en">When More Became Less</div>
+
+```
+  <p class="narrative ja">冷凍網の普及と機械化により生産量が急増。有明海では「支柱式養殖」の構造は変わらないが、支柱の素材が竹・丸太からプラスチックポールへ、収穫は手摘みから刃のついたピアノ線を回す機械船（もぐり船）へと転換した。また品種も1960年代後半を境にアサクサノリから病気に強いスサビノリへ置き換わった。大量生産できるようになった反面、全業者が同じ設備・同じ品種になり価格競争の沼へ。現在の卸売中心・低利益率体質の原型はこの時代に形成された。</p>
+  <p class="narrative en">Frozen nets and mechanization caused production to surge. The Ariake's supporting-pole structure remained — but the poles shifted from bamboo and logs to plastic, and harvesting moved from hand-picking to mechanical "diving boats" with rotating piano-wire blades. The nori species also changed: from the delicate Asakusa-nori to the more disease-resistant Susabi-nori in the late 1960s. Mass production arrived — but so did sameness. Every producer had the same equipment and the same variety, triggering a race to the bottom on price.</p>
+
+  <div class="highlight" data-label="重要：変わったこと vs 変わらなかったこと">
+    <div class="highlight-title ja">有明の「支柱式」は江戸時代から変わっていない</div>
+    <div class="highlight-title en">Ariake's Supporting-Pole Method — Unchanged Since Edo</div>
+    <div class="highlight-desc ja">
+      <strong style="color:var(--kin-light)">変わったもの：</strong>支柱の素材（竹→プラスチック）、網の素材（麻→ナイロン）、収穫方法（手→機械船）、品種（アサクサノリ→スサビノリ）<br>
+      <strong style="color:var(--miru-bright)">変わっていないもの：</strong>海に支柱を立て、その支柱に網を張るという基本構造。干潮時に網が海面から出て日光に当たり、旨味が凝縮される有明海ならではの原理。
+    </div>
+    <div class="highlight-desc en">
+      <strong style="color:var(--kin-light)">What changed:</strong> Pole material (bamboo → plastic), net material (hemp → nylon), harvesting (hands → mechanical boats), species (Asakusa → Susabi nori)<br>
+      <strong style="color:var(--miru-bright)">What didn't change:</strong> The fundamental structure of supporting poles with nets strung between them. The Ariake principle: nets emerge at low tide, sun-dried, umami concentrated.
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-col neg">
+      <div class="compare-head ja">▲ 大量生産の功罪</div>
+      <div class="compare-head en">▲ The Cost of Mass Production</div>
+      <div class="compare-item"><span class="ci-neg">✗</span> <span class="ja">全業者が同じ設備・同じ品種</span><span class="en">Everyone uses same equipment & species</span></div>
+      <div class="compare-item"><span class="ci-neg">✗</span> <span class="ja">品質の差別化が消える</span><span class="en">Quality differentiation disappears</span></div>
+      <div class="compare-item"><span class="ci-neg">✗</span> <span class="ja">卸売・価格競争の泥沼化</span><span class="en">Wholesale race to the bottom</span></div>
+      <div class="compare-item"><span class="ci-neg">✗</span> <span class="ja">品質が価格に反映されない市場</span><span class="en">Market doesn't reward quality</span></div>
+    </div>
+    <div class="compare-col pos">
+      <div class="compare-head ja">◎ 技術的な進歩</div>
+      <div class="compare-head en">◎ Technical Progress</div>
+      <div class="compare-item"><span class="ci-pos">✓</span> <span class="ja">もぐり船で収穫が大幅効率化</span><span class="en">Diving boats dramatically cut harvest time</span></div>
+      <div class="compare-item"><span class="ci-pos">✓</span> <span class="ja">冷凍網で生産計画が可能に</span><span class="en">Frozen nets enable production planning</span></div>
+      <div class="compare-item"><span class="ci-pos">✓</span> <span class="ja">自動乾燥機・抄き機の普及</span><span class="en">Auto-dryers and forming machines spread</span></div>
+      <div class="compare-item"><span class="ci-pos">✓</span> <span class="ja">安定した年間生産量の実現</span><span class="en">Stable annual production achieved</span></div>
+    </div>
+  </div>
+
+  <div class="kp-grid">
+    <div class="kp">
+      <div class="kp-icon">🚢</div>
+      <div class="kp-title ja">もぐり船（機械収穫）</div>
+      <div class="kp-title en">Mechanical Harvest Boats</div>
+      <div class="kp-title-en">"Moguri-bune"</div>
+      <div class="kp-desc ja">ピアノ線を回転させる刃で網1枚を1〜3分で収穫。手摘みの数十倍の効率</div>
+      <div class="kp-desc en">Rotating piano-wire blades harvest one net in 1–3 minutes. Dozens of times faster than hand-picking</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🧬</div>
+      <div class="kp-title ja">品種転換：スサビノリへ</div>
+      <div class="kp-title en">Species Switch: Susabi Nori</div>
+      <div class="kp-title-en">Late 1960s Onwards</div>
+      <div class="kp-desc ja">病気に強く育てやすいスサビノリが全国に普及。アサクサノリはほぼ絶滅状態に</div>
+      <div class="kp-desc en">Disease-resistant Susabi nori spreads nationwide. The original Asakusa nori is nearly extinct</div>
+    </div>
+    <div class="kp">
+      <div class="kp-icon">🏭</div>
+      <div class="kp-title ja">一貫加工ラインの完成</div>
+      <div class="kp-title en">End-to-End Processing Line</div>
+      <div class="kp-title-en">Integrated Automation</div>
+      <div class="kp-desc ja">収穫→裁断→抄き→乾燥→包装が連続ライン化。人手が激減した反面、差別化の余地も消えた</div>
+      <div class="kp-desc en">Harvest → shred → form → dry → pack fully automated. Labor dropped dramatically — but so did room for differentiation</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag ja">支柱式継続（変わらず）</span><span class="tag en">Supporting-Pole Method Continues</span>
+    <span class="tag ja">スサビノリへ転換</span><span class="tag en">Susabi Nori Replaces Asakusa</span>
+    <span class="tag ja">もぐり船</span><span class="tag en">Diving Harvest Boats</span>
+    <span class="tag ja">価格競争の泥沼</span><span class="tag en">Price War Spiral</span>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- ===== ERA 6: 現在 ===== -->
+
+  <div class="era">
+    <div class="era-header">
+      <span class="era-num ja">06 ／ 現在</span>
+      <span class="era-num en">06 ／ Present</span>
+      <div class="era-rule"></div>
+      <div class="era-dot active"></div>
+    </div>
+    <div class="era-card accent-miru">
+      <div class="era-period" style="color:var(--miru-bright)">2020年代</div>
+      <div class="era-name ja">70年の技術と記憶を、次の世代へ</div>
+      <div class="era-name en">Carrying 70 Years of Knowledge Forward</div>
+      <div class="era-name-en ja">歴史の継承者として、有明の海と向き合う</div>
+      <div class="era-name-en en">Custodians of a Living Tradition</div>
+
+```
+  <p class="narrative ja">価格競争と担い手不足が深刻化する中、創業70年以上の職人知見を持つ生産者は業界の中でも希少な存在になった。機械化が進んだ現代でも、有明海の支柱式養殖の原理は江戸時代から変わっていない。干潮時に網が空中に出て日光を浴び、旨味を凝縮させる——この自然の摂理と向き合い続けることが、有明海苔の本質だ。道具は変わっても、海と対話する職人の目と勘は、今も変わらず受け継がれている。</p>
+  <p class="narrative en">As price competition intensifies and successors become scarce, producers with 70+ years of accumulated craft knowledge are increasingly rare. Even in today's mechanized era, the fundamental principle of Ariake's supporting-pole cultivation has not changed since the Edo period. Nets emerge at low tide, exposed to sunlight, concentrating umami — this dialogue with nature remains the essence of Ariake nori. Tools change. The craftsman's eye and intuition, passed down through generations, does not.</p>
+
+  <div class="highlight green" data-label="受け継いできたもの">
+    <div class="highlight-title ja">変わらないもの、変わったもの</div>
+    <div class="highlight-title en">What Endures · What Has Changed</div>
+    <div class="highlight-desc ja">
+      <strong style="color:var(--kin-light)">70年、変わらないもの：</strong>有明海の干潟と向き合う姿勢。潮の動きを読む目。一番摘みの海苔が持つ繊細な旨味への敬意。<br><br>
+      <strong style="color:var(--miru-bright)">時代とともに変わったもの：</strong>支柱の素材（竹→プラスチック）、収穫（手摘み→もぐり船）、種付け（自然任せ→人工採苗）。しかし支柱を海に立てて網を張るという有明の原理は、江戸から今も同じ。
+    </div>
+    <div class="highlight-desc en">
+      <strong style="color:var(--kin-light)">Unchanged across 70 years:</strong> The posture of facing the Ariake tidal flat. Reading the movement of the tides. Reverence for the delicate umami of first-harvest nori.<br><br>
+      <strong style="color:var(--miru-bright)">What has evolved:</strong> Pole materials (bamboo → plastic), harvesting (hand → mechanical boats), seeding (natural → artificial). But the Ariake principle — poles in the sea, nets between them — is the same as in the Edo era.
+    </div>
+  </div>
+
+  <div class="kp-grid">
+    <div class="kp" style="border-color:var(--miru-bright)">
+      <div class="kp-icon">🌊</div>
+      <div class="kp-title ja">有明海・干満差6メートル</div>
+      <div class="kp-title en">6m Tidal Range — Ariake Sea</div>
+      <div class="kp-title-en">Japan's Greatest Tidal Flat</div>
+      <div class="kp-desc ja">日本最大級の干満差が生む、世界唯一の支柱式養殖環境。この地でしか生まれない柔らかさと口溶け</div>
+      <div class="kp-desc en">Japan's greatest tidal range creates a cultivation environment found nowhere else on earth. Softness and melt-in-the-mouth texture unique to this place</div>
+    </div>
+    <div class="kp" style="border-color:var(--miru-bright)">
+      <div class="kp-icon">👁️</div>
+      <div class="kp-title ja">70年の目と勘</div>
+      <div class="kp-title en">70 Years of Eye and Instinct</div>
+      <div class="kp-title-en">Living Craft Knowledge</div>
+      <div class="kp-desc ja">潮の色、網の張り具合、一番摘みの手触り。機械では測れない職人の知覚が、今も品質を守っている</div>
+      <div class="kp-desc en">The color of the tide, the tension of the net, the feel of first-harvest nori. Sensory craft that no machine can replicate still guards quality today</div>
+    </div>
+    <div class="kp" style="border-color:var(--miru-bright)">
+      <div class="kp-icon">🏮</div>
+      <div class="kp-title ja">歴史の継承者として</div>
+      <div class="kp-title en">Custodians of History</div>
+      <div class="kp-title-en">Est. 70+ Years</div>
+      <div class="kp-desc ja">江戸から続く有明海苔の技術の系譜。その末端ではなく、次の世代へ繋ぐ中継点として今ここに立つ</div>
+      <div class="kp-desc en">A lineage of Ariake nori craft stretching back to the Edo era. Standing not at the end of that line, but as the link to the next generation</div>
+    </div>
+  </div>
+  <div class="tags">
+    <span class="tag ja">創業70年以上</span><span class="tag en">70+ Years of Craft</span>
+    <span class="tag ja">支柱式養殖</span><span class="tag en">Supporting-Pole Method</span>
+    <span class="tag ja">有明の干潟</span><span class="tag en">Ariake Tidal Flat</span>
+    <span class="tag ja">職人の目と勘</span><span class="tag en">Craftsman's Eye & Instinct</span>
+    <span class="tag ja">歴史の継承者</span><span class="tag en">Custodians of History</span>
+  </div>
+</div>
+```
+
+  </div>
+</div><!-- /timeline-wrap -->
+
+<!-- ======== SUMMARY TIMELINE ======== -->
+
+<div class="summary-section">
+  <h2 class="summary-title ja">ひと目でわかる1000年の技術変遷</h2>
+  <h2 class="summary-title en">1,000 Years at a Glance</h2>
+  <div class="tl-spine-wrap">
+    <div class="tl-spine"></div>
+    <div class="tl-items">
+
+```
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-year">奈良時代</div>
+      <div class="tl-desc ja">『常陸風土記』に「海苔」初出</div>
+      <div class="tl-desc en">Hitachi Fudoki — first written record of nori</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node"></div></div>
+    <div class="tl-right">
+      <div class="tl-sub ja">天然採取のみ</div>
+      <div class="tl-sub en">Wild harvest only</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-sub ja" style="text-align:right">養殖の誕生</div>
+      <div class="tl-sub en" style="text-align:right">Cultivation begins</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node"></div></div>
+    <div class="tl-right">
+      <div class="tl-year">江戸初期</div>
+      <div class="tl-desc ja">ソダヒビ式・大森で養殖開始。板海苔・海苔巻き登場</div>
+      <div class="tl-desc en">Sodahibi stakes in Omori, Tokyo Bay. Sheet nori & nori rolls appear</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-year">明治期</div>
+      <div class="tl-desc ja">技術が九州・有明海に伝播</div>
+      <div class="tl-desc en">Techniques reach Kyushu & Ariake Sea</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node"></div></div>
+    <div class="tl-right">
+      <div class="tl-sub ja">依然「運草」の時代</div>
+      <div class="tl-sub en">Still the "Gamble Weed" era</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-sub ja" style="text-align:right; color:var(--kin-light)">★ 歴史的大転換</div>
+      <div class="tl-sub en" style="text-align:right; color:var(--kin-light)">★ Historic Breakthrough</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node big"></div></div>
+    <div class="tl-right">
+      <div class="tl-year">1949–53年</div>
+      <div class="tl-desc ja">ドリュー女史が生活史解明 → 人工採苗成功。「運草」終わる</div>
+      <div class="tl-desc en">Drew-Baker solves life cycle mystery → Artificial seeding. "Gamble Weed" era ends</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-year ja">御社創業</div>
+      <div class="tl-year en">Company Founded</div>
+      <div class="tl-desc ja">戦後復興期にゼロから養殖を再建</div>
+      <div class="tl-desc en">Rebuilding nori cultivation from postwar ashes</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node" style="background:var(--kin-light); box-shadow:0 0 12px rgba(240,192,96,0.5)"></div></div>
+    <div class="tl-right">
+      <div class="tl-sub ja">創業70年以上の歴史ここから</div>
+      <div class="tl-sub en">70+ year legacy begins here</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-sub ja" style="text-align:right">機械化・大量生産</div>
+      <div class="tl-sub en" style="text-align:right">Mechanization · Mass production</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node"></div></div>
+    <div class="tl-right">
+      <div class="tl-year">1960〜80年代</div>
+      <div class="tl-desc ja">冷凍網・もぐり船・自動乾燥機。品種もスサビノリへ</div>
+      <div class="tl-desc en">Frozen nets, diving boats, auto-dryers. Species shifts to Susabi nori</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-year">2000年代〜</div>
+      <div class="tl-desc ja" style="color:var(--shu-light)">価格競争・担い手不足が深刻化</div>
+      <div class="tl-desc en" style="color:var(--shu-light)">Price wars · Succession crisis</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node" style="border-color:var(--shu)"></div></div>
+    <div class="tl-right">
+      <div class="tl-sub ja" style="color:var(--shu-light)">業界構造の限界</div>
+      <div class="tl-sub en" style="color:var(--shu-light)">Industry at its limits</div>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-left">
+      <div class="tl-sub ja" style="text-align:right; color:var(--miru-bright)">現在</div>
+      <div class="tl-sub en" style="text-align:right; color:var(--miru-bright)">Present</div>
+    </div>
+    <div class="tl-mid"><div class="tl-node big" style="background:var(--miru-bright); border-color:var(--sumi); outline-color:var(--miru-bright); box-shadow:0 0 18px rgba(90,153,112,0.7)"></div></div>
+    <div class="tl-right">
+      <div class="tl-year" style="color:var(--miru-bright)">2020年代</div>
+      <div class="tl-desc ja">創業70年以上。有明の干潟と向き合い続ける歴史の継承者</div>
+      <div class="tl-desc en">70+ years of craft. Custodians of a living tradition on the Ariake tidal flat</div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
 </div>
 
-<div class="img span-12 reveal bg-family">
-<div class="img-label">Family</div>
+<!-- ======== CLOSING ======== -->
+
+<div class="closing">
+  <div class="closing-inner">
+    <p class="closing-quote ja">縄文の昔から、江戸の養殖誕生、科学革命、機械化の波を経て——<br>有明海の干潟と向き合う職人の姿は、今も変わらない。</p>
+    <p class="closing-quote en">From Jomon foragers to Edo cultivators, from scientific revolution to mechanized fleets —<br>the craftsman facing the Ariake tidal flat remains unchanged.</p>
+    <p class="closing-quote-en ja">The tide goes out. The nets rise to the sun. The nori grows.</p>
+    <p class="closing-quote-en en">潮が引く。網が陽光を浴びる。海苔が育つ。——1000年、変わらない原理。</p>
+  </div>
 </div>
-
-</div>
-</div>
-</section>
-
-<section id="photos">
-<div class="container">
-
-<h2 class="section-title reveal"
-data-jp="有明海の風景"
-data-en="Scenes of Ariake Sea"></h2>
-
-<div class="grid">
-
-<div class="img span-6 reveal bg-product"></div>
-<div class="img span-6 reveal bg-package"></div>
-
-</div>
-
-</div>
-</section>
-
-<footer>
-<div class="container">
-© Ariake Sea Nori
-</div>
-</footer>
 
 <script>
-
-function setLang(lang){
-document.querySelectorAll("[data-jp]").forEach(el=>{
-el.innerHTML=(lang==="jp")?el.dataset.jp:el.dataset.en
-})
+function setLang(lang) {
+  document.body.className = lang === 'en' ? 'lang-en' : '';
+  document.documentElement.lang = lang === 'en' ? 'en' : 'ja';
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
 }
 
-setLang("jp")
-
-const io=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting)e.target.classList.add("show")
-})
-})
-
-document.querySelectorAll(".reveal").forEach(el=>io.observe(el))
-
+// Intersection Observer for fade-in
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.era').forEach(el => io.observe(el));
 </script>
 
 </body>
