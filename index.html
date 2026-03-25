@@ -62,7 +62,7 @@ html { background: #0e0d0b; }
 body {
 background: #181410;
 font-family: ‘Noto Serif JP’, ‘Cormorant Garamond’, serif;
-color: var(–washi);
+color: #f2ede4;
 overflow-x: hidden;
 line-height: 1.7;
 }
@@ -81,7 +81,7 @@ background: var(–sumi-dark);
 .lang-btn {
 padding: 7px 16px;
 background: transparent;
-color: var(–kin-light);
+color: #f0c060;
 border: none;
 cursor: pointer;
 font-family: ‘Cormorant Garamond’, serif;
@@ -91,7 +91,7 @@ transition: all 0.25s;
 }
 .lang-btn.active {
 background: var(–kin);
-color: var(–sumi-dark);
+color: #0e0d0b;
 font-weight: 600;
 }
 
@@ -139,13 +139,13 @@ border: 2px solid var(–shu);
 border-radius: 50%;
 display: flex; align-items: center; justify-content: center;
 margin-bottom: 24px;
-opacity: 0;
-animation: fadeUp 0.9s 0.2s forwards;
+opacity: 1;
 }
+
 .hero-seal-inner {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: 11px;
-color: var(–shu-light);
+color: #c44b38;
 letter-spacing: 0.05em;
 text-align: center;
 line-height: 1.4;
@@ -155,23 +155,21 @@ line-height: 1.4;
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 12px;
 letter-spacing: 0.35em;
-color: var(–kin-mid);
+color: #d4a030;
 text-transform: uppercase;
 margin-bottom: 20px;
-opacity: 0;
-animation: fadeUp 0.9s 0.35s forwards;
+opacity: 1;
 }
 
 .hero-title {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: clamp(34px, 6vw, 68px);
 font-weight: 700;
-color: var(–washi);
+color: #ffffff;
 line-height: 1.15;
 margin-bottom: 10px;
 letter-spacing: 0.05em;
-opacity: 0;
-animation: fadeUp 0.9s 0.5s forwards;
+opacity: 1;
 }
 
 .hero-title-en {
@@ -179,19 +177,17 @@ font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
 font-size: clamp(18px, 3vw, 32px);
 font-weight: 400;
-color: var(–kin-light);
+color: #f0c060;
 margin-bottom: 28px;
-opacity: 0;
-animation: fadeUp 0.9s 0.65s forwards;
+opacity: 1;
 }
 
 .hero-desc {
 font-size: clamp(13px, 1.6vw, 16px);
-color: var(–washi-3);
+color: #c0b8a8;
 max-width: 560px;
 line-height: 2;
-opacity: 0;
-animation: fadeUp 0.9s 0.8s forwards;
+opacity: 1;
 }
 
 .hero-nendai {
@@ -227,7 +223,7 @@ text-align: center;
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 11px;
 letter-spacing: 0.35em;
-color: var(–kin-mid);
+color: #d4a030;
 text-transform: uppercase;
 margin-bottom: 64px;
 }
@@ -253,7 +249,7 @@ margin-bottom: 20px;
 .era-num {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 11px;
-color: var(–kin-mid);
+color: #d4a030;
 letter-spacing: 0.2em;
 white-space: nowrap;
 flex-shrink: 0;
@@ -300,7 +296,7 @@ border-radius: 2px 2px 0 0;
 font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(26px, 4vw, 42px);
 font-weight: 600;
-color: var(–kin-light);
+color: #f0c060;
 line-height: 1;
 margin-bottom: 4px;
 }
@@ -308,7 +304,7 @@ margin-bottom: 4px;
 .era-name {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: clamp(17px, 2.2vw, 22px);
-color: var(–washi);
+color: #f2ede4;
 margin-bottom: 2px;
 letter-spacing: 0.05em;
 }
@@ -317,7 +313,7 @@ letter-spacing: 0.05em;
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
 font-size: 15px;
-color: var(–washi-3);
+color: #a89f90;
 margin-bottom: 28px;
 }
 
@@ -325,7 +321,7 @@ margin-bottom: 28px;
 .narrative {
 font-size: 14.5px;
 line-height: 2;
-color: var(–washi-2);
+color: #d8d2c4;
 margin-bottom: 24px;
 }
 
@@ -340,7 +336,7 @@ margin-bottom: 24px;
 .diagram-label {
 font-size: 10px;
 letter-spacing: 0.3em;
-color: var(–kin-mid);
+color: #d4a030;
 text-transform: uppercase;
 font-family: ‘Cormorant Garamond’, serif;
 margin-bottom: 18px;
@@ -372,12 +368,12 @@ flex-shrink: 0;
 .flow-label {
 font-size: 11px;
 text-align: center;
-color: var(–washi-2);
+color: #d8d2c4;
 line-height: 1.5;
 max-width: 72px;
 }
 .flow-arrow {
-color: var(–kin);
+color: #b8861e;
 font-size: 16px;
 margin-top: 22px;
 flex-shrink: 0;
@@ -409,19 +405,19 @@ font-family: ‘Cormorant Garamond’, serif;
 margin-bottom: 12px;
 font-weight: 600;
 }
-.compare-col.neg .compare-head { color: var(–shu-light); }
-.compare-col.pos .compare-head { color: var(–miru-bright); }
+.compare-col.neg .compare-head { color: #c44b38; }
+.compare-col.pos .compare-head { color: #5a9970; }
 .compare-item {
 font-size: 12.5px;
-color: var(–washi-2);
+color: #d8d2c4;
 padding: 5px 0;
 border-bottom: 1px solid rgba(255,255,255,0.06);
 line-height: 1.55;
 display: flex; gap: 7px; align-items: flex-start;
 }
 .compare-item:last-child { border-bottom: none; }
-.ci-neg { color: var(–shu-light); flex-shrink: 0; }
-.ci-pos { color: var(–miru-bright); flex-shrink: 0; }
+.ci-neg { color: #c44b38; flex-shrink: 0; }
+.ci-pos { color: #5a9970; flex-shrink: 0; }
 
 /* ============ ハイライトボックス ============ */
 .highlight {
@@ -439,29 +435,29 @@ top: -11px; left: 20px;
 background: var(–sumi-mid);
 padding: 0 10px;
 font-size: 11px;
-color: var(–kin-light);
+color: #f0c060;
 font-family: ‘Cormorant Garamond’, serif;
 letter-spacing: 0.1em;
 }
 .highlight-title {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: 15px;
-color: var(–kin-light);
+color: #f0c060;
 margin-bottom: 8px;
 }
 .highlight-desc {
 font-size: 13.5px;
-color: var(–washi-2);
+color: #d8d2c4;
 line-height: 1.85;
 }
 
 /* 緑ハイライト */
 .highlight.green {
-border-color: var(–miru-bright);
+border-color: #5a9970;
 background: rgba(42,74,53,0.1);
 }
-.highlight.green::before { color: var(–miru-bright); }
-.highlight.green .highlight-title { color: var(–miru-bright); }
+.highlight.green::before { color: #5a9970; }
+.highlight.green .highlight-title { color: #5a9970; }
 
 /* ============ KEY POINTS ============ */
 .kp-grid {
@@ -480,17 +476,17 @@ border-radius: 0 2px 2px 0;
 .kp-title {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: 14px;
-color: var(–washi);
+color: #f2ede4;
 margin-bottom: 3px;
 }
 .kp-title-en {
 font-size: 10px;
-color: var(–kin-mid);
+color: #d4a030;
 letter-spacing: 0.1em;
 font-family: ‘Cormorant Garamond’, serif;
 margin-bottom: 6px;
 }
-.kp-desc { font-size: 12.5px; color: var(–washi-3); line-height: 1.7; }
+.kp-desc { font-size: 12.5px; color: #a89f90; line-height: 1.7; }
 
 /* ============ タグ ============ */
 .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
@@ -499,7 +495,7 @@ padding: 3px 11px;
 border: 1px solid var(–border-gold);
 border-radius: 1px;
 font-size: 11px;
-color: var(–kin-mid);
+color: #d4a030;
 letter-spacing: 0.1em;
 font-family: ‘Cormorant Garamond’, serif;
 }
@@ -523,11 +519,11 @@ display: flex; align-items: center; justify-content: center;
 flex-shrink: 0;
 font-size: 20px;
 }
-.fb-text { font-size: 13px; color: var(–washi-2); line-height: 1.7; }
+.fb-text { font-size: 13px; color: #d8d2c4; line-height: 1.7; }
 .fb-title {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: 15px;
-color: var(–kin-light);
+color: #f0c060;
 display: block;
 margin-bottom: 4px;
 }
@@ -542,7 +538,7 @@ padding: 0 24px 80px;
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: clamp(18px, 2.5vw, 24px);
 text-align: center;
-color: var(–washi);
+color: #f2ede4;
 margin-bottom: 48px;
 letter-spacing: 0.05em;
 }
@@ -579,11 +575,11 @@ box-shadow: 0 0 14px rgba(212,160,48,0.6);
 .tl-year {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 13px;
-color: var(–kin-light);
+color: #f0c060;
 font-weight: 600;
 }
-.tl-desc { font-size: 12.5px; color: var(–washi-2); margin-top: 2px; line-height: 1.55; }
-.tl-sub { font-size: 11px; color: var(–washi-4); margin-top: 1px; font-style: italic; font-family: ‘Cormorant Garamond’, serif; }
+.tl-desc { font-size: 12.5px; color: #d8d2c4; margin-top: 2px; line-height: 1.55; }
+.tl-sub { font-size: 11px; color: #786e62; margin-top: 1px; font-style: italic; font-family: ‘Cormorant Garamond’, serif; }
 
 /* ============ CLOSING ============ */
 .closing {
@@ -608,12 +604,12 @@ background: var(–sumi);
 padding: 0 14px;
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: 16px;
-color: var(–kin-mid);
+color: #d4a030;
 }
 .closing-quote {
 font-family: ‘Shippori Mincho B1’, serif;
 font-size: clamp(15px, 2.2vw, 20px);
-color: var(–washi);
+color: #f2ede4;
 line-height: 2;
 margin-bottom: 16px;
 }
@@ -621,7 +617,7 @@ margin-bottom: 16px;
 font-family: ‘Cormorant Garamond’, serif;
 font-style: italic;
 font-size: clamp(13px, 1.8vw, 17px);
-color: var(–washi-3);
+color: #a89f90;
 line-height: 1.8;
 }
 
