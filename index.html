@@ -73,10 +73,10 @@ position: fixed;
 top: 20px; right: 20px;
 z-index: 200;
 display: flex;
-border: 1px solid var(–kin);
+border: 1px solid #b8861e;
 border-radius: 2px;
 overflow: hidden;
-background: var(–sumi-dark);
+background: #0e0d0b;
 }
 .lang-btn {
 padding: 7px 16px;
@@ -88,9 +88,11 @@ font-family: ‘Cormorant Garamond’, serif;
 font-size: 13px;
 letter-spacing: 0.08em;
 transition: all 0.25s;
+min-width: 72px;
+text-align: center;
 }
 .lang-btn.active {
-background: var(–kin);
+background: #d4a030;
 color: #0e0d0b;
 font-weight: 600;
 }
@@ -107,13 +109,13 @@ body.lang-en .ien { display: inline; }
 
 /* ============ HERO ============ */
 .hero {
-min-height: 100vh;
+min-height: auto;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 text-align: center;
-padding: 100px 24px 80px;
+padding: 60px 24px 60px;
 position: relative;
 overflow: hidden;
 background:
